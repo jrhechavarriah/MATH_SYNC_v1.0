@@ -1,0 +1,3 @@
+Dataset,N,Median anchors,Median overlap (s),Min anchors,Max anchors
+Harvard,10,26.0,1337.1969165204791,26,26
+WESAD,15,16.0,5547.75,14,16

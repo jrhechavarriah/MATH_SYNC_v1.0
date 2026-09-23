@@ -1,0 +1,7 @@
+Evidence layer,Dataset / source,Independent unit,Timing structure,Primary role
+Formal theory,Analytical formulation,Mathematical model,Inverse affine clock + temporal gauge,"Convexity, identifiability, conditioning, and bounded residual-score contributions"
+Synthetic ground truth,MATH-SYNC S1 Monte Carlo,Controlled replicate,Six heterogeneous native-rate synthetic streams,Known clock perturbations and exact reconstruction ground truth
+Real public schedules,Harvard S0201 Session 1,Session,EEG ~500 Hz; NIRS ~7.8 Hz; Physio ~20 Hz; SIM ~60 Hz,Transfer from synthetic schedules to real LSL timing schedules
+Within-participant replication,Harvard S0201 Session 2,Session,Same four frozen core streams,Within-participant session replication
+Between-participant replication,Harvard cohort,Participant (N=10),Real LSL schedules + real event anchors,Participant-level generalization
+External-dataset replication,WESAD,Participant (N=15),Chest ECG 700 Hz; wrist BVP 64 Hz; ACC 32 Hz; EDA 4 Hz,Cross-dataset and cross-device generalization

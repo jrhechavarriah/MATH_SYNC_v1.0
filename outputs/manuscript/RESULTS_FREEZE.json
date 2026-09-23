@@ -1,0 +1,72 @@
+{
+  "bootstrap_replicates": 20000,
+  "bootstrap_seed": 20260825,
+  "canonical_publication_figure_verification": {
+    "all_pass": true,
+    "figure_count": 11,
+    "pixel_tolerance_max_channel_difference": 2
+  },
+  "estimator_rerun_by_reporting_script": false,
+  "harvard_participants": [
+    "S0201",
+    "S0113",
+    "S0171",
+    "S0175",
+    "S0199",
+    "S0133",
+    "S0120",
+    "S0207",
+    "S0101",
+    "S0127"
+  ],
+  "inferential_unit": "participant",
+  "key_value_checks": {
+    "supplementary_wesad_clean_huber_matches_table3": true,
+    "supplementary_wesad_clean_reduction_matches_table3": true,
+    "table2_clean_huber_relative_round4": true,
+    "table3_wesad_clean_huber_round6": true,
+    "table3_wesad_clean_reduction_round4": true
+  },
+  "main_figures": [
+    "Figure_1_S0201_within_participant_replication.png",
+    "Figure_2_Harvard_nominal_paired_participants.png",
+    "Figure_3_Harvard_stress_paired_participants.png",
+    "Figure_4_WESAD_nominal_paired_participants.png",
+    "Figure_5_WESAD_stress_paired_participants.png",
+    "Figure_6_cross_dataset_nominal.png",
+    "Figure_7_cross_dataset_stress.png"
+  ],
+  "main_tables": [
+    "Table_1_validation_architecture.csv",
+    "Table_2_S0201_within_participant_replication.csv",
+    "Table_3_Huber_vs_OLS_replication.csv",
+    "Table_4_public_dataset_QC_summary.csv"
+  ],
+  "primary_outcome": "equal-modality macro RMSE",
+  "release": "MATH-SYNC v1.0",
+  "source_public_replay_outputs_modified": false,
+  "supplementary_files": [
+    "Supplementary_Figure_S1_RMSE_vs_drift.png",
+    "Supplementary_Figure_S2_RMSE_vs_jitter.png",
+    "Supplementary_Figure_S3_RMSE_vs_missingness.png",
+    "Supplementary_Figure_S4_RMSE_vs_outliers.png",
+    "Supplementary_Table_S1_full_participant_comparisons.csv"
+  ],
+  "wesad_participants": [
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9",
+    "S10",
+    "S11",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17"
+  ]
+}

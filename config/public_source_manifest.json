@@ -1,0 +1,115 @@
+{
+  "harvard": {
+    "doi": "10.7910/DVN/HMZ5RG",
+    "dataverse_root": "https://dataverse.harvard.edu",
+    "expected_archives": [
+      {
+        "participant": "S0201",
+        "expected_datafile_id": 10210425,
+        "filename": "S0201_physio.zip",
+        "size_bytes": 206095319,
+        "md5": "af5a73ca21a8430b0f1b797b689c375e"
+      },
+      {
+        "participant": "S0113",
+        "expected_datafile_id": 10210327,
+        "filename": "S0113_physio.zip",
+        "size_bytes": 252166029,
+        "md5": "ce833ae202d7e2673c5377e1fdccfce1"
+      },
+      {
+        "participant": "S0171",
+        "expected_datafile_id": 10210392,
+        "filename": "S0171_physio.zip",
+        "size_bytes": 276076623,
+        "md5": "75ca9696f8d6dc7cc9cb313c5fd9c8f9"
+      },
+      {
+        "participant": "S0175",
+        "expected_datafile_id": 10210397,
+        "filename": "S0175_physio.zip",
+        "size_bytes": 308665327,
+        "md5": "dbb7f5046ee58e30bd7d8fbdbf1d712c"
+      },
+      {
+        "participant": "S0199",
+        "expected_datafile_id": 10210415,
+        "filename": "S0199_physio.zip",
+        "size_bytes": 269494695,
+        "md5": "b9f25c55b0574951dd0a624ebfe87e03"
+      },
+      {
+        "participant": "S0133",
+        "expected_datafile_id": 10210337,
+        "filename": "S0133_physio.zip",
+        "size_bytes": 280211964,
+        "md5": "70688abf9d3f23d21e2e6b450a985f3e"
+      },
+      {
+        "participant": "S0120",
+        "expected_datafile_id": 10210335,
+        "filename": "S0120_physio.zip",
+        "size_bytes": 260131688,
+        "md5": "f9add061d06caf4cc0ad37366f14fbae"
+      },
+      {
+        "participant": "S0207",
+        "expected_datafile_id": 10210428,
+        "filename": "S0207_physio.zip",
+        "size_bytes": 262504035,
+        "md5": "a6575a9f76fce56b0890795539624dbf"
+      },
+      {
+        "participant": "S0101",
+        "expected_datafile_id": 10210159,
+        "filename": "S0101_physio.zip",
+        "size_bytes": 301629050,
+        "md5": "97c10e0c361b042e6efe5d226ac68c27"
+      },
+      {
+        "participant": "S0127",
+        "expected_datafile_id": 10210328,
+        "filename": "S0127_physio.zip",
+        "size_bytes": 323253847,
+        "md5": "e9614c23b2395ebf129c1ae33f8eabe0"
+      }
+    ]
+  },
+  "wesad": {
+    "doi": "10.24432/C57K5T",
+    "official_landing_page": "https://ubi29.informatik.uni-siegen.de/usi/data_wesad.html",
+    "official_share_id": "HGdUkoNlW1Ub0Gx",
+    "candidate_urls": [
+      "https://uni-siegen.sciebo.de/s/HGdUkoNlW1Ub0Gx/download/WESAD.zip",
+      "https://uni-siegen.sciebo.de/s/HGdUkoNlW1Ub0Gx/download"
+    ],
+    "expected_subjects": [
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9",
+      "S10",
+      "S11",
+      "S13",
+      "S14",
+      "S15",
+      "S16",
+      "S17"
+    ]
+  },
+  "disk": {
+    "raw_root": "data/raw",
+    "minimum_free_gib": 15
+  },
+  "notes": [
+    "Preflight only: no Harvard or WESAD archive is downloaded.",
+    "Harvard latest repository metadata must match the frozen size and MD5 for all ten archives.",
+    "A changed Dataverse datafile ID is recorded but is not by itself a failure when filename, size and MD5 match.",
+    "WESAD preflight checks the official University landing page and candidate download endpoint without consuming the archive body."
+  ],
+  "release": "MATH-SYNC v1.0 public source manifest"
+}

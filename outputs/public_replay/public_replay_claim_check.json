@@ -1,0 +1,417 @@
+{
+  "table2_display_precision_match": [
+    {
+      "scenario": "clean",
+      "method": "Joint Huber",
+      "observed_4dp": [
+        0.1046,
+        0.1049,
+        0.0003,
+        0.2615
+      ],
+      "expected_4dp": [
+        0.1046,
+        0.1049,
+        0.0003,
+        0.2615
+      ],
+      "match": true
+    },
+    {
+      "scenario": "clean",
+      "method": "Joint OLS",
+      "observed_4dp": [
+        0.1041,
+        0.1039,
+        0.0002,
+        0.1838
+      ],
+      "expected_4dp": [
+        0.1041,
+        0.1039,
+        0.0002,
+        0.1838
+      ],
+      "match": true
+    },
+    {
+      "scenario": "clean",
+      "method": "Offset-only",
+      "observed_4dp": [
+        18.3961,
+        20.9974,
+        2.6012,
+        14.14
+      ],
+      "expected_4dp": [
+        18.3961,
+        20.9974,
+        2.6012,
+        14.14
+      ],
+      "match": true
+    },
+    {
+      "scenario": "clean",
+      "method": "Raw",
+      "observed_4dp": [
+        139.2195,
+        117.5859,
+        21.6335,
+        15.5392
+      ],
+      "expected_4dp": [
+        139.2195,
+        117.5859,
+        21.6335,
+        15.5392
+      ],
+      "match": true
+    },
+    {
+      "scenario": "nominal",
+      "method": "Joint Huber",
+      "observed_4dp": [
+        1.0576,
+        1.0529,
+        0.0047,
+        0.4402
+      ],
+      "expected_4dp": [
+        1.0576,
+        1.0529,
+        0.0047,
+        0.4402
+      ],
+      "match": true
+    },
+    {
+      "scenario": "nominal",
+      "method": "Joint OLS",
+      "observed_4dp": [
+        4.179,
+        4.161,
+        0.0181,
+        0.4321
+      ],
+      "expected_4dp": [
+        4.179,
+        4.161,
+        0.0181,
+        0.4321
+      ],
+      "match": true
+    },
+    {
+      "scenario": "nominal",
+      "method": "Offset-only",
+      "observed_4dp": [
+        18.5849,
+        18.9052,
+        0.3202,
+        1.7231
+      ],
+      "expected_4dp": [
+        18.5849,
+        18.9052,
+        0.3202,
+        1.7231
+      ],
+      "match": true
+    },
+    {
+      "scenario": "nominal",
+      "method": "Raw",
+      "observed_4dp": [
+        129.8258,
+        125.716,
+        4.1098,
+        3.1656
+      ],
+      "expected_4dp": [
+        129.8258,
+        125.716,
+        4.1098,
+        3.1656
+      ],
+      "match": true
+    },
+    {
+      "scenario": "stress",
+      "method": "Joint Huber",
+      "observed_4dp": [
+        5.7685,
+        5.6458,
+        0.1227,
+        2.1267
+      ],
+      "expected_4dp": [
+        5.7685,
+        5.6458,
+        0.1227,
+        2.1267
+      ],
+      "match": true
+    },
+    {
+      "scenario": "stress",
+      "method": "Joint OLS",
+      "observed_4dp": [
+        15.5131,
+        14.9785,
+        0.5345,
+        3.4458
+      ],
+      "expected_4dp": [
+        15.5131,
+        14.9785,
+        0.5345,
+        3.4458
+      ],
+      "match": true
+    },
+    {
+      "scenario": "stress",
+      "method": "Offset-only",
+      "observed_4dp": [
+        91.8079,
+        92.673,
+        0.8651,
+        0.9423
+      ],
+      "expected_4dp": [
+        91.8079,
+        92.673,
+        0.8651,
+        0.9423
+      ],
+      "match": true
+    },
+    {
+      "scenario": "stress",
+      "method": "Raw",
+      "observed_4dp": [
+        305.0333,
+        322.3447,
+        17.3114,
+        5.6752
+      ],
+      "expected_4dp": [
+        305.0333,
+        322.3447,
+        17.3114,
+        5.6752
+      ],
+      "match": true
+    }
+  ],
+  "table3_display_precision_match": [
+    {
+      "dataset": "Harvard",
+      "scenario": "clean",
+      "observed_4dp": [
+        10,
+        0.1041,
+        0.105,
+        -0.0004,
+        -0.001,
+        -0.0002,
+        -0.7751,
+        0.1,
+        0.0117
+      ],
+      "expected_4dp": [
+        10,
+        0.1041,
+        0.105,
+        -0.0004,
+        -0.001,
+        -0.0002,
+        -0.7751,
+        0.1,
+        0.0117
+      ],
+      "match": true
+    },
+    {
+      "dataset": "Harvard",
+      "scenario": "nominal",
+      "observed_4dp": [
+        10,
+        4.0518,
+        1.0644,
+        2.9904,
+        2.8632,
+        3.0947,
+        73.7311,
+        1.0,
+        0.0117
+      ],
+      "expected_4dp": [
+        10,
+        4.0518,
+        1.0644,
+        2.9904,
+        2.8632,
+        3.0947,
+        73.7311,
+        1.0,
+        0.0117
+      ],
+      "match": true
+    },
+    {
+      "dataset": "Harvard",
+      "scenario": "stress",
+      "observed_4dp": [
+        10,
+        15.1897,
+        5.7126,
+        9.4999,
+        8.9975,
+        9.6993,
+        62.3917,
+        1.0,
+        0.0117
+      ],
+      "expected_4dp": [
+        10,
+        15.1897,
+        5.7126,
+        9.4999,
+        8.9975,
+        9.6993,
+        62.3917,
+        1.0,
+        0.0117
+      ],
+      "match": true
+    },
+    {
+      "dataset": "WESAD",
+      "scenario": "clean",
+      "observed_4dp": [
+        15,
+        0.1061,
+        0.1065,
+        -0.0006,
+        -0.0007,
+        -0.0003,
+        -0.4164,
+        0.1333,
+        0.0004
+      ],
+      "expected_4dp": [
+        15,
+        0.1061,
+        0.1065,
+        -0.0006,
+        -0.0007,
+        -0.0003,
+        -0.4164,
+        0.1333,
+        0.0004
+      ],
+      "match": true
+    },
+    {
+      "dataset": "WESAD",
+      "scenario": "nominal",
+      "observed_4dp": [
+        15,
+        6.1334,
+        1.0997,
+        5.0383,
+        4.8202,
+        5.16,
+        82.0709,
+        1.0,
+        0.0004
+      ],
+      "expected_4dp": [
+        15,
+        6.1334,
+        1.0997,
+        5.0383,
+        4.8202,
+        5.16,
+        82.0709,
+        1.0,
+        0.0004
+      ],
+      "match": true
+    },
+    {
+      "dataset": "WESAD",
+      "scenario": "stress",
+      "observed_4dp": [
+        15,
+        18.8376,
+        6.1235,
+        12.8167,
+        11.9952,
+        13.2268,
+        67.493,
+        1.0,
+        0.0004
+      ],
+      "expected_4dp": [
+        15,
+        18.8376,
+        6.1235,
+        12.8167,
+        11.9952,
+        13.2268,
+        67.493,
+        1.0,
+        0.0004
+      ],
+      "match": true
+    }
+  ],
+  "table4_display_precision_match": [
+    {
+      "dataset": "Harvard",
+      "observed": [
+        10,
+        26.0,
+        1337.1969165204791,
+        26,
+        26
+      ],
+      "expected": [
+        10,
+        26.0,
+        1337.2,
+        26,
+        26
+      ],
+      "match": true
+    },
+    {
+      "dataset": "WESAD",
+      "observed": [
+        15,
+        16.0,
+        5547.75,
+        14,
+        16
+      ],
+      "expected": [
+        15,
+        16.0,
+        5547.75,
+        14,
+        16
+      ],
+      "match": true
+    }
+  ],
+  "claim_direction_checks": {
+    "nominal_stress_huber_better_all_dataset_scenarios": true,
+    "nominal_stress_participant_win_rate_100pct": true,
+    "clean_absolute_median_difference_below_0_001_ms": true
+  },
+  "all_manuscript_displayed_values_match": true,
+  "all_primary_claim_directions_pass": true
+}

@@ -1,0 +1,30 @@
+{
+  "title": "MATH-SYNC v1.0: Reproducible Computational Pipeline for Robust and Identifiable Affine-Clock Alignment of Heterogeneous Multirate Sensor Streams",
+  "upload_type": "software",
+  "version": "1.0",
+  "access_right": "open",
+  "license": "mit",
+  "language": "eng",
+  "creators": [
+    {
+      "name": "Hechavarria-Hernandez, Jesus Rafael",
+      "affiliation": "Universidad ECOTEC",
+      "orcid": "0000-0002-9013-8665"
+    }
+  ],
+  "keywords": [
+    "clock synchronization",
+    "temporal alignment",
+    "affine clock model",
+    "clock skew",
+    "robust estimation",
+    "Huber M-estimation",
+    "identifiability",
+    "multirate sensor streams",
+    "multimodal sensing",
+    "sensor fusion",
+    "scientific computing",
+    "reproducible research"
+  ],
+  "description": "MATH-SYNC v1.0 is a reproducible computational pipeline for robust and identifiable affine-clock alignment of heterogeneous multirate sensor streams. The release includes controlled synthetic validation, semi-synthetic perturbation-and-replay using public Harvard timing schedules, within-participant session replication, participant-level Harvard replication, external schedule-replay replication using WESAD, participant-level statistical inference, manuscript-aligned Tables 1-4 and Figures 1-7, Supplementary Table S1 and Supplementary Figures S1-S4, automated tests, environment specifications, and SHA-256 integrity manifests. Raw Harvard and WESAD datasets are not redistributed."
+}

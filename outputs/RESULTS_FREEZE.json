@@ -1,0 +1,55 @@
+{
+  "release": "MATH_SYNC_v1.0",
+  "pipeline_release": "MATH_SYNC_v1.0",
+  "bootstrap_seed": 20260825,
+  "bootstrap_replicates": 20000,
+  "inferential_unit": "participant",
+  "primary_outcome": "equal-modality macro RMSE",
+  "harvard_participants": [
+    "S0201",
+    "S0113",
+    "S0171",
+    "S0175",
+    "S0199",
+    "S0133",
+    "S0120",
+    "S0207",
+    "S0101",
+    "S0127"
+  ],
+  "wesad_participants": [
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9",
+    "S10",
+    "S11",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17"
+  ],
+  "harvard_technical_acquisition_exclusion": "S0114",
+  "estimator_changed_during_release_output_generation": false,
+  "interpretation_boundary": "Known temporal perturbations are applied to real public timing schedules. The replay does not estimate unknown natural hardware drift in the original source experiments.",
+  "main_tables": [
+    "Table_1_validation_architecture.csv",
+    "Table_2_S0201_within_participant_replication.csv",
+    "Table_3_Huber_vs_OLS_replication.csv",
+    "Table_4_public_dataset_QC_summary.csv"
+  ],
+  "main_figures": [
+    "Figure_1_S0201_within_participant_replication.png",
+    "Figure_2_Harvard_nominal_paired_participants.png",
+    "Figure_3_Harvard_stress_paired_participants.png",
+    "Figure_4_WESAD_nominal_paired_participants.png",
+    "Figure_5_WESAD_stress_paired_participants.png",
+    "Figure_6_cross_dataset_nominal.png",
+    "Figure_7_cross_dataset_stress.png"
+  ]
+}

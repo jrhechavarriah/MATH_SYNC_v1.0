@@ -1,0 +1,11 @@
+data/raw/
+outputs/public_replay/participant_cache/
+reports/
+_staging/
+release_candidate/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
