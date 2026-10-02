@@ -1,7 +1,7 @@
-{
-  "title": "MATH-SYNC v1.0: Reproducible Computational Pipeline for Robust and Identifiable Affine-Clock Alignment of Heterogeneous Multirate Sensor Streams",
+﻿{
+  "title": "MATH-SYNC v1.1: Reproducible Computational Pipeline for Robust and Identifiable Affine-Clock Alignment of Heterogeneous Multirate Sensor Streams",
   "upload_type": "software",
-  "version": "1.0",
+  "version": "1.1",
   "access_right": "open",
   "license": "mit",
   "language": "eng",
@@ -24,7 +24,9 @@
     "multimodal sensing",
     "sensor fusion",
     "scientific computing",
-    "reproducible research"
+    "reproducible research",
+    "sensitivity analysis",
+    "robustness analysis"
   ],
-  "description": "MATH-SYNC v1.0 is a reproducible computational pipeline for robust and identifiable affine-clock alignment of heterogeneous multirate sensor streams. The release includes controlled synthetic validation, semi-synthetic perturbation-and-replay using public Harvard timing schedules, within-participant session replication, participant-level Harvard replication, external schedule-replay replication using WESAD, participant-level statistical inference, manuscript-aligned Tables 1-4 and Figures 1-7, Supplementary Table S1 and Supplementary Figures S1-S4, automated tests, environment specifications, and SHA-256 integrity manifests. Raw Harvard and WESAD datasets are not redistributed."
+  "description": "MATH-SYNC v1.1 preserves the complete frozen v1.0 computational validation release and adds reviewer-driven supplementary analyses developed under a separately frozen protocol. The new G12 analyses evaluate alternative robust estimators, anchor-count and temporal-span sensitivity, reference-stream sensitivity, convergence tolerance, and computational scaling. The release includes frozen G12 specifications, reusable computational modules, raw and summarized results, Supplementary Tables S2-S5, automated tests, environment specifications, and SHA-256 integrity metadata. The original v1.0 validation architecture and results remain unchanged. Raw Harvard and WESAD datasets are not redistributed."
 }

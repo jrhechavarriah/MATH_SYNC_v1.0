@@ -1,0 +1,109 @@
+﻿{
+    "specification":  "G12C_REFERENCE_STREAM_SPEC",
+    "version":  "0.1",
+    "status":  "FROZEN_BEFORE_G12C_OUTCOME_INSPECTION",
+    "scientific_parent":  "G12_REVISION_ENHANCEMENT_PROTOCOL_v0.1",
+    "previous_gate":  "G12B_SCIENTIFIC_CLOSURE",
+    "previous_gate_sha256":  "D7D89684424875AA3B4EDB539AE2CDE51C00C1E63908B9763451DFBF9739D280",
+    "objective":  "Separate pure reference/gauge choice from degradation caused by systematic contamination of the selected reference stream",
+    "estimator":  {
+                      "method":  "Joint Huber",
+                      "tuning_constant":  1.345,
+                      "scale":  "1.4826_MAD",
+                      "minimum_scale":  1E-06,
+                      "max_iterations":  30,
+                      "relative_tolerance":  1E-10,
+                      "initialization":  "OLS"
+                  },
+    "base_configuration":  {
+                               "scenario":  "clean",
+                               "rationale":  "Isolate reference/gauge effects without background missingness or gross-outlier confounding",
+                               "duration_s":  120,
+                               "usable_start_s":  3,
+                               "usable_end_s":  117,
+                               "anchor_count":  24,
+                               "temporal_span_fraction":  1,
+                               "replicates":  50
+                           },
+    "candidate_references":  [
+                                 "REF_EVENT",
+                                 "EEG",
+                                 "PPG",
+                                 "EDA",
+                                 "IMU",
+                                 "HMD"
+                             ],
+    "conditions":  [
+                       "reference_clean",
+                       "reference_systematically_contaminated"
+                   ],
+    "systematic_contamination":  {
+                                     "applied_only_to_selected_reference_anchor_timestamps":  true,
+                                     "applied_to_evaluation_timestamps":  false,
+                                     "type":  "smooth_nonaffine_sinusoidal_timestamp_bias",
+                                     "amplitude_ms":  20,
+                                     "formula":  "delta(t)=0.020*sin(2*pi*(t-3)/114) seconds",
+                                     "phase_rad":  0,
+                                     "period_s":  114,
+                                     "rationale":  "Non-affine perturbation cannot be removed by a pure affine gauge transformation",
+                                     "random_component":  false
+                                 },
+    "pairing":  {
+                    "identical_physical_realization_across_reference_choices":  true,
+                    "identical_physical_realization_across_clean_and_contaminated_conditions":  true,
+                    "same_replicate_seed_across_all_reference_choices":  true,
+                    "estimator_specific_seed_selection":  false
+                },
+    "canonical_coordinate":  {
+                                 "required":  true,
+                                 "target":  "simulation_ground_truth_tau",
+                                 "rule":  "Transform every recovered solution from the selected reference coordinate back to the common canonical simulation time before cross-reference performance comparison",
+                                 "use_true_reference_clock_only_for_coordinate_conversion":  true,
+                                 "evaluation_not_performed_in_reference_local_time":  true
+                             },
+    "recorded_metrics":  [
+                             "macro_RMSE_ms",
+                             "MAE_ms",
+                             "P95_abs_error_ms",
+                             "gamma_RMSE_ppm",
+                             "kappa_RMSE_ms",
+                             "sigma_min_weighted_A",
+                             "condition_number_weighted_A",
+                             "iterations",
+                             "converged",
+                             "solver_failure",
+                             "status"
+                         ],
+    "expected_design":  {
+                            "references":  6,
+                            "conditions":  2,
+                            "replicates_per_condition":  50,
+                            "expected_trials":  600
+                        },
+    "analysis_plan":  {
+                          "C1_reference_choice":  "Compare six clean reference choices after canonical-coordinate transformation",
+                          "C2_reference_contamination":  "Within each reference, compare systematically contaminated versus clean using paired replicate seeds",
+                          "primary_outcome":  "macro_RMSE_ms",
+                          "reference_choice_interpretation":  "Reference choice is treated as gauge sensitivity, not a competition among sensor modalities",
+                          "contamination_interpretation":  "Quantify degradation relative to the paired clean-reference condition",
+                          "failures":  "Retain and report all failures; do not impute performance",
+                          "no_posthoc_reference_exclusion":  true
+                      },
+    "seed_policy":  {
+                        "master_seed":  20260821,
+                        "deterministic":  true,
+                        "one_physical_realization_per_replicate":  true,
+                        "reused_across_all_reference_conditions":  true
+                    },
+    "prohibited":  [
+                       "posthoc contamination-amplitude tuning",
+                       "reference-specific parameter tuning",
+                       "seed selection",
+                       "removal of unfavorable valid results",
+                       "replacement of failed trials",
+                       "modification of Harvard or WESAD results",
+                       "modification of public MATH_SYNC v1.0 release before IP Gate"
+                   ],
+    "public_release_modified":  false,
+    "legacy_core_modified":  false
+}

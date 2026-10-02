@@ -1,0 +1,145 @@
+﻿{
+    "specification":  "G12D_CONVERGENCE_SCALING_SPEC",
+    "version":  "0.1",
+    "status":  "FROZEN_BEFORE_G12D_OUTCOME_INSPECTION",
+    "scientific_parent":  "G12_REVISION_ENHANCEMENT_PROTOCOL_v0.1",
+    "previous_gate":  "G12C_SCIENTIFIC_CLOSURE",
+    "previous_gate_sha256":  "4B626A0A58229BA9295E0C66CE6DD16A3C7E2A1ECB1F81E26C0374973FE5EB09",
+    "objective":  "Characterize IRLS convergence, tolerance sensitivity, runtime, and finite synthetic scaling without making real-time or asymptotic performance claims",
+    "estimator":  {
+                      "method":  "Joint Huber",
+                      "tuning_constant":  1.345,
+                      "scale":  "1.4826_MAD",
+                      "minimum_scale":  1E-06,
+                      "initialization":  "OLS",
+                      "max_iterations":  30,
+                      "convergence_rule":  "norm(z_new-z) \u003c= tolerance*(1+norm(z))",
+                      "final_relative_parameter_change":  "norm(z_new-z)/(1+norm(z))"
+                  },
+    "synthetic_load":  {
+                           "scenario":  "nominal",
+                           "drift_ppm":  100,
+                           "offset_s":  0.25,
+                           "jitter_ms":  1,
+                           "missing_prob":  0.1,
+                           "outlier_frac":  0.05,
+                           "outlier_ms":  60,
+                           "duration_s":  120,
+                           "reference_stream_fully_observed":  true,
+                           "nonreference_minimum_retained_anchors":  5,
+                           "rationale":  "Use the frozen nominal S1 contamination regime as a moderate computational workload"
+                       },
+    "D1_convergence_diagnostics":  {
+                                       "role":  "Recorded for every D2 and D3 trial; no separate redundant experiment",
+                                       "recorded":  [
+                                                        "iterations",
+                                                        "converged",
+                                                        "status",
+                                                        "final_relative_parameter_change",
+                                                        "final_huber_loss",
+                                                        "runtime_s",
+                                                        "macro_RMSE_ms",
+                                                        "MAE_ms",
+                                                        "n_observations",
+                                                        "n_parameters",
+                                                        "rank_A",
+                                                        "sigma_min_weighted_A",
+                                                        "condition_number_weighted_A"
+                                                    ],
+                                       "final_huber_loss_definition":  "Sum of Huber rho values evaluated from the final residuals using the final MAD-based scale; diagnostic only, not claimed as a globally minimized adaptive-scale objective"
+                                   },
+    "D2_tolerance_sensitivity":  {
+                                     "stream_count":  6,
+                                     "anchor_count":  24,
+                                     "tolerances":  [
+                                                        0.0001,
+                                                        1E-06,
+                                                        1E-08
+                                                    ],
+                                     "replicates":  50,
+                                     "expected_trials":  150,
+                                     "pairing":  "The same physical realization and evaluation samples are reused across the three tolerances within each replicate",
+                                     "primary_comparisons":  [
+                                                                 "convergence_rate",
+                                                                 "iterations",
+                                                                 "runtime_s",
+                                                                 "macro_RMSE_ms"
+                                                             ],
+                                     "interpretation":  "Numerical sensitivity analysis only; no tolerance is selected post hoc as a replacement for the frozen manuscript estimator"
+                                 },
+    "D3_scaling":  {
+                       "stream_counts":  [
+                                             5,
+                                             10,
+                                             20,
+                                             40
+                                         ],
+                       "anchor_counts":  [
+                                             8,
+                                             16,
+                                             32,
+                                             64,
+                                             128
+                                         ],
+                       "tolerance":  1E-10,
+                       "replicates":  50,
+                       "expected_configurations":  20,
+                       "expected_trials":  1000,
+                       "evaluation_samples_per_nonreference_stream":  300,
+                       "primary_summaries":  [
+                                                 "n_observations",
+                                                 "n_parameters",
+                                                 "runtime_s",
+                                                 "iterations",
+                                                 "convergence_rate",
+                                                 "macro_RMSE_ms"
+                                             ],
+                       "scope":  "Finite evaluated synthetic sizes only; no real-time, arbitrary-large-scale, or asymptotic complexity claim"
+                   },
+    "trial_totals":  {
+                         "D2":  150,
+                         "D3":  1000,
+                         "total":  1150
+                     },
+    "generic_stream_generation":  {
+                                      "reference_index":  0,
+                                      "reference_clock":  "a=1,b=0",
+                                      "nonreference_clock_generation":  "Independent affine clocks with drift and offset drawn using the frozen nominal S1 distributions",
+                                      "same_anchor_events_shared_across_streams":  true,
+                                      "arbitrary_stream_labels":  "REF plus deterministic synthetic stream labels S001...S039",
+                                      "native_rate_resampling":  false,
+                                      "note":  "Sampling rate does not enter the anchor-level joint linear system; scaling varies stream count and anchor count only"
+                                  },
+    "seed_policy":  {
+                        "master_seed":  20260821,
+                        "deterministic":  true,
+                        "D2_seed_base":  24260821,
+                        "D3_seed_base":  25260821,
+                        "paired_D2_seed_across_tolerances":  true,
+                        "same_replicate_seed_reused_across_D3_configurations":  true
+                    },
+    "runtime_policy":  {
+                           "timer":  "time.perf_counter",
+                           "measured_region":  "Joint Huber solve only, excluding synthetic data generation, evaluation, file I/O, and table construction",
+                           "reporting":  "Median and IQR; descriptive only",
+                           "machine_specific":  "Runtime values characterize the workstation/environment used for this experiment and are not hardware-independent benchmarks"
+                       },
+    "failure_policy":  {
+                           "retain_rank_deficient_trials":  true,
+                           "retain_max_iteration_trials":  true,
+                           "no_rerun_for_unfavorable_results":  true,
+                           "no_imputation_of_failed_performance":  true
+                       },
+    "prohibited":  [
+                       "posthoc tolerance selection for manuscript replacement",
+                       "posthoc removal of slow runs",
+                       "reference-specific or size-specific solver tuning",
+                       "seed selection",
+                       "replacement of failed trials",
+                       "modification of legacy_v1_synthetic.py",
+                       "modification of Harvard or WESAD results",
+                       "modification of public MATH_SYNC v1.0 before IP Gate"
+                   ],
+    "public_release_modified":  false,
+    "legacy_core_modified":  false
+}

@@ -1,0 +1,34 @@
+﻿{
+    "release":  "MATH-SYNC v1.1",
+    "release_date":  "2026-10-02",
+    "zenodo_doi":  "10.5281/zenodo.23106783",
+    "provenance":  {
+                       "baseline_release":  "v1.0",
+                       "baseline_zenodo_doi":  "10.5281/zenodo.22920440",
+                       "baseline_preserved_unchanged":  true,
+                       "supplementary_analysis":  "G12",
+                       "protocol":  "protocols/G12_REVISION_ENHANCEMENT_PROTOCOL_v0.1.md"
+                   },
+    "validation":  {
+                       "isolated_release_imports":  "PASS",
+                       "inherited_v1_0_tests":  "19/19 PASS",
+                       "g12_tests":  "33/33 PASS",
+                       "complete_test_suite":  "52/52 PASS",
+                       "g12_result_hash_comparison":  "PASS",
+                       "g12_result_mismatch_count":  0,
+                       "v1_0_baseline_hash_comparison":  "PASS",
+                       "v1_0_baseline_problem_count":  0,
+                       "supplementary_tables_S2_S5":  "PASS",
+                       "forbidden_release_files":  "NONE DETECTED",
+                       "test_artifacts_removed":  true
+                   },
+    "technical_release_screen":  {
+                                     "scope":  "PROJECT_LEVEL_TECHNICAL_RELEASE_SCREEN_NOT_LEGAL_OPINION",
+                                     "local_paths_detected_in_g12_code":  false,
+                                     "credentials_detected":  false,
+                                     "external_network_calls_detected":  false,
+                                     "confidential_markers_detected":  false,
+                                     "legacy_code_novelty_flag":  "NO_NEW_ALGORITHM_DETECTED_RELATIVE_TO_PUBLIC_V1_0",
+                                     "legal_ip_clearance":  "NOT_ASSESSED"
+                                 }
+}

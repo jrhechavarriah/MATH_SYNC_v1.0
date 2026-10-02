@@ -1,0 +1,118 @@
+﻿{
+    "specification":  "G12B_ANCHOR_GEOMETRY_SPEC",
+    "version":  "0.1",
+    "status":  "FROZEN_BEFORE_G12B_OUTCOME_INSPECTION",
+    "scientific_parent":  "G12_REVISION_ENHANCEMENT_PROTOCOL_v0.1",
+    "previous_gate":  "G12A_SCIENTIFIC_CLOSURE",
+    "previous_gate_sha256":  "F5440E018B31453882E6C04E5DACEEEA50E3F060DE5531A44E7C0ED84921B0BA",
+    "estimator":  {
+                      "method":  "Joint Huber",
+                      "tuning_constant":  1.345,
+                      "scale":  "1.4826_MAD",
+                      "minimum_scale":  1E-06,
+                      "max_iterations":  30,
+                      "relative_tolerance":  1E-10,
+                      "initialization":  "OLS"
+                  },
+    "design":  {
+                   "duration_s":  120,
+                   "usable_start_s":  3,
+                   "usable_end_s":  117,
+                   "usable_width_s":  114,
+                   "temporal_center_s":  60,
+                   "anchor_counts":  [
+                                         4,
+                                         6,
+                                         8,
+                                         12,
+                                         16,
+                                         24
+                                     ],
+                   "temporal_span_fractions":  [
+                                                   0.25,
+                                                   0.5,
+                                                   1
+                                               ],
+                   "temporal_windows":  {
+                                            "span_025":  [
+                                                             45.75,
+                                                             74.25
+                                                         ],
+                                            "span_050":  [
+                                                             31.5,
+                                                             88.5
+                                                         ],
+                                            "span_100":  [
+                                                             3,
+                                                             117
+                                                         ]
+                                        },
+                   "irregular_perturbation_s":  0.8,
+                   "clip_to_selected_window":  true,
+                   "scenarios":  [
+                                     "clean",
+                                     "nominal",
+                                     "stress"
+                                 ],
+                   "replicates_per_configuration":  50,
+                   "expected_configurations":  54,
+                   "expected_trials":  2700
+               },
+    "missingness":  {
+                        "preserve_scenario_probability":  true,
+                        "reference_stream_fully_observed":  true,
+                        "nonreference_forced_minimum_anchor_count":  false,
+                        "rationale":  "Permit genuine loss of identifiability under sparse geometry"
+                    },
+    "seed_policy":  {
+                        "master_seed":  20260821,
+                        "deterministic":  true,
+                        "same_seed_rule_across_geometry":  true,
+                        "estimator_specific_seed_selection":  false
+                    },
+    "structural_diagnostics":  [
+                                   "rank_A",
+                                   "n_parameters",
+                                   "full_column_rank",
+                                   "sigma_min_weighted_A",
+                                   "condition_number_weighted_A"
+                               ],
+    "performance_metrics":  [
+                                "macro_RMSE_ms",
+                                "MAE_ms",
+                                "gamma_RMSE_ppm",
+                                "kappa_RMSE_ms"
+                            ],
+    "audit_fields":  [
+                         "scenario",
+                         "anchor_count",
+                         "temporal_span_fraction",
+                         "replicate",
+                         "seed",
+                         "n_observations",
+                         "n_parameters",
+                         "rank_A",
+                         "identifiable",
+                         "sigma_min_weighted_A",
+                         "condition_number_weighted_A",
+                         "converged",
+                         "iterations",
+                         "solver_failure",
+                         "status"
+                     ],
+    "failure_policy":  {
+                           "rank_deficient_design":  "retain_and_report_with_performance_metrics_NaN",
+                           "numerical_failure":  "retain_and_report",
+                           "max_iterations":  "retain_and_report",
+                           "unfavorable_valid_results":  "retain",
+                           "no_posthoc_geometry_removal":  true
+                       },
+    "planned_summaries":  [
+                              "RMSE_vs_sigma_min",
+                              "anchor_count_x_temporal_span_response_surface",
+                              "nonidentifiability_frequency",
+                              "solver_failure_frequency"
+                          ],
+    "public_release_modified":  false,
+    "legacy_core_modified":  false
+}

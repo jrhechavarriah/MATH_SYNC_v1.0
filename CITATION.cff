@@ -1,4 +1,4 @@
-cff-version: 1.2.0
+﻿cff-version: 1.2.0
 
 message: >
   If you use MATH-SYNC, please cite this software release using
@@ -7,13 +7,13 @@ message: >
 type: software
 
 title: >
-  MATH-SYNC v1.0: Reproducible Computational Pipeline for Robust
+  MATH-SYNC v1.1: Reproducible Computational Pipeline for Robust
   and Identifiable Affine-Clock Alignment of Heterogeneous
   Multirate Sensor Streams
 
-version: "1.0"
+version: "1.1"
 
-date-released: "2026-09-23"
+date-released: "2026-10-02"
 
 authors:
   - family-names: "Hechavarria-Hernandez"
@@ -36,18 +36,20 @@ keywords:
   - multirate sensor streams
   - multimodal sensing
   - reproducibility
+  - sensitivity analysis
+  - computational robustness
 
 abstract: >
-  MATH-SYNC v1.0 is a reproducible computational pipeline for robust
-  and identifiable affine-clock alignment of heterogeneous multirate
-  sensor streams. The release includes controlled synthetic validation,
-  semi-synthetic perturbation-and-replay using public Harvard timing
-  schedules, within-participant session replication, participant-level
-  Harvard replication, external schedule-replay replication using WESAD,
-  participant-level inference, manuscript-aligned tables and figures,
-  supplementary sensitivity analyses, automated tests, and SHA-256
-  integrity manifests.
+  MATH-SYNC v1.1 is a reproducible computational release for robust and
+  identifiable affine-clock alignment of heterogeneous multirate sensor
+  streams. It preserves the complete frozen v1.0 validation package and adds
+  reviewer-driven supplementary robustness analyses covering alternative
+  robust estimators, anchor geometry, reference-stream sensitivity, and
+  convergence and computational-scaling diagnostics. The release includes
+  frozen experiment specifications, Supplementary Tables S2-S5, raw and
+  summarized G12 results, automated tests, and SHA-256 integrity metadata.
+  The original MATH-SYNC v1.0 validation remains preserved unchanged.
 
-doi: "10.5281/zenodo.22920440"
+doi: "10.5281/zenodo.23106783"
 
-url: "https://doi.org/10.5281/zenodo.22920440"
+url: "https://doi.org/10.5281/zenodo.23106783"

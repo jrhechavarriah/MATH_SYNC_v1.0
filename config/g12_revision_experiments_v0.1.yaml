@@ -1,0 +1,121 @@
+protocol:
+  id: G12
+  version: "0.1"
+  status: frozen_before_outcome_inspection
+  purpose: reviewer_driven_robustness_extension
+
+inherited_frozen_settings:
+  huber_c: 1.345
+  scale_estimator: MAD
+  max_irls_iterations: 30
+  paired_replicates: 50
+  primary_metric: macro_rmse
+  native_rate_preserved: true
+  equal_stream_macro_aggregation: true
+  population_inferential_unit: participant
+  existing_harvard_results_immutable: true
+  existing_wesad_results_immutable: true
+  estimator_retuning_by_dataset: false
+
+g12_a:
+  name: alternative_robust_estimator_benchmark
+  estimators:
+    - joint_ols
+    - joint_huber
+    - joint_lad_l1
+    - joint_tukey_biweight
+    - joint_ransac_conditional
+  scenarios:
+    - clean
+    - nominal
+    - stress
+  replicates: 50
+  metrics:
+    primary:
+      - macro_rmse
+    secondary:
+      - mae
+      - p95_absolute_error
+      - clock_rate_error
+      - offset_error
+      - convergence
+      - runtime
+  ransac:
+    status: conditional
+    inclusion_rule: same_joint_latent_event_affine_problem_and_unit_tests_pass_before_outcome_inspection
+    replacement_if_infeasible: none
+
+g12_b:
+  name: anchor_geometry_sensitivity
+  anchor_counts: [4, 6, 8, 12, 16, 24]
+  temporal_span_fraction: [0.25, 0.50, 1.00]
+  scenarios: [clean, nominal, stress]
+  replicates: 50
+  outputs:
+    - rank_A
+    - sigma_min_weighted_A
+    - condition_number
+    - macro_rmse
+    - mae
+    - clock_rate_error
+    - offset_error
+    - identifiable
+    - solver_failure
+
+g12_c:
+  name: reference_stream_sensitivity
+  candidate_references:
+    - reference_60hz
+    - eeg_250hz
+    - ppg_64hz
+    - eda_32hz
+    - imu_100hz
+    - hmd_90hz
+  arms:
+    - reference_choice
+    - reference_contamination
+  reference_contamination_levels:
+    - reference_clean
+    - reference_contaminated
+  canonical_time_comparison_required: true
+  outputs:
+    - macro_rmse
+    - mae
+    - clock_rate_error
+    - offset_error
+    - sigma_min
+    - condition_number
+    - iterations
+    - convergence
+    - solver_failure
+
+g12_d:
+  name: convergence_runtime_scalability
+  tolerance_levels: [1.0e-4, 1.0e-6, 1.0e-8]
+  stream_counts: [5, 10, 20, 40]
+  anchor_counts: [8, 16, 32, 64, 128]
+  outputs:
+    - n_observations
+    - n_unknowns
+    - runtime_seconds
+    - iterations
+    - convergence
+    - solver_failure
+    - final_relative_parameter_change
+    - final_objective
+    - macro_rmse
+    - peak_memory_optional
+
+reporting_rules:
+  preserve_failed_runs: true
+  estimator_specific_seed_selection: false
+  remove_unfavorable_valid_outcomes: false
+  checksum_final_outputs: sha256
+  deviation_log: G12_DEVIATIONS.md
+  manuscript_outputs_generated_programmatically: true
+
+planned_supplementary_outputs:
+  - table_s2_alternative_estimators
+  - table_s3_anchor_geometry
+  - table_s4_reference_sensitivity
+  - table_s5_convergence_runtime_scaling

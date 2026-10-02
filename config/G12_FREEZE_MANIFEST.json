@@ -1,0 +1,30 @@
+﻿{
+    "protocol_id":  "G12",
+    "protocol_version":  "0.1",
+    "status":  "FROZEN_BEFORE_OUTCOME_INSPECTION",
+    "freeze_local":  "2026-10-01T14:21:57-05:00",
+    "freeze_utc":  "2026-10-01T19:21:57Z",
+    "project_root":  "D:\\Research\\Projects\\MATH_SYNC",
+    "public_release_root":  "D:\\GitHub\\MATH_SYNC_v1.0",
+    "public_release_modified":  false,
+    "protocol_file":  "protocols\\G12_REVISION_ENHANCEMENT_PROTOCOL_v0.1.md",
+    "protocol_sha256":  "E88505AA02CD94BD0A2D3D9F00A05B7400A2039F47897FBD443E9A68131B5651",
+    "config_file":  "config\\g12_revision_experiments_v0.1.yaml",
+    "config_sha256":  "B15DA53F0419503120F943535CE7348C569A94D8D9D5416A1080B519BFF8B7C4",
+    "scientific_priority":  "paper_revision_first",
+    "ip_priority":  "software_and_intellectual_property_after_paper",
+    "experiments":  {
+                        "G12_A":  "alternative_robust_estimator_benchmark",
+                        "G12_B":  "anchor_geometry_sensitivity",
+                        "G12_C":  "reference_stream_sensitivity",
+                        "G12_D":  "convergence_runtime_scalability"
+                    },
+    "frozen_rules":  [
+                         "No estimator-specific seed selection",
+                         "No removal of unfavorable valid outcomes",
+                         "Existing Harvard results immutable",
+                         "Existing WESAD results immutable",
+                         "No dataset-specific Huber retuning",
+                         "No public GitHub or Zenodo update before IP Gate"
+                     ]
+}

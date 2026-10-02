@@ -1,0 +1,6 @@
+scenario,method,status,count
+clean,Joint Tukey,max_iterations_reached,2
+nominal,Joint Tukey,max_iterations_reached,6
+nominal,Joint Tukey,weighted_design_rank_deficient,7
+stress,Joint Tukey,max_iterations_reached,10
+stress,Joint Tukey,weighted_design_rank_deficient,8

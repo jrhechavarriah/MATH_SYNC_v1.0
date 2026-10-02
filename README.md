@@ -1,4 +1,4 @@
-# MATH-SYNC
+﻿# MATH-SYNC
 
 **Robust and Identifiable Affine-Clock Alignment of Heterogeneous Multirate Sensor Streams**
 
@@ -85,6 +85,61 @@ adjustment, participant-level win rates, matched-pairs rank-biserial effect size
 deterministic percentile-bootstrap confidence intervals. The publication bootstrap uses
 20,000 resamples and seed `20260825`.
 
+
+## v1.1 reviewer-driven robustness analyses
+
+MATH-SYNC v1.1 preserves the complete v1.0 validation release and adds the
+reviewer-driven G12 analyses developed subsequently under a separately frozen
+computational protocol.
+
+These analyses are supplementary to the original prespecified validation
+architecture and do not replace or retrospectively modify the v1.0 results.
+
+### G12-A — Robust estimator comparison
+
+Compares Joint Huber with OLS, LAD, RANSAC, and Tukey-type robust estimation under
+clean, nominal, and stress conditions.
+
+    python scripts/experiments/run_G12A_robust_estimators.py
+
+### G12-B — Anchor geometry
+
+Evaluates sensitivity to anchor count and temporal span, including rank,
+conditioning, convergence, and reconstruction-error diagnostics.
+
+    python scripts/experiments/run_G12B_anchor_geometry.py
+
+### G12-C — Reference-stream sensitivity
+
+Evaluates alternative reference streams under clean conditions and under a
+controlled smooth non-affine perturbation applied to the selected reference stream.
+
+    python scripts/experiments/run_G12C_reference_stream.py
+
+### G12-D — Convergence and scaling diagnostics
+
+Examines convergence tolerance and computational scaling across increasing
+numbers of streams and anchors.
+
+    python scripts/experiments/run_G12D_convergence_scaling.py
+
+The corresponding manuscript supplementary tables are included as:
+
+- `results/g12/g12a/G12A_Table_S2.csv`
+- `results/g12/g12b/G12B_Table_S3.csv`
+- `results/g12/g12c/G12C_Table_S4.csv`
+- `results/g12/g12d/G12D_Table_S5.csv`
+
+The complete public test suite can be executed with:
+
+    PYTHONPATH=src python -m pytest -q
+
+On the frozen v1.1 release candidate, the suite completed with 52 passed tests.
+
+See `CHANGELOG.md` and
+`protocols/G12_REVISION_ENHANCEMENT_PROTOCOL_v0.1.md` for release provenance and
+the supplementary-analysis protocol.
+
 ## Integrity and data policy
 
 Raw Harvard and WESAD archives, extracted source datasets, and participant caches are not
@@ -96,3 +151,4 @@ See:
 - `docs/PUBLIC_DATA_SOURCES.md`
 - `docs/REPRODUCIBILITY.md`
 - `docs/MANUSCRIPT_OUTPUTS.md`
+

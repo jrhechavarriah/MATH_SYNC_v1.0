@@ -1,0 +1,4 @@
+scenario,n_geometry_cells,spearman_sigma_min_vs_rmse,spearman_condition_vs_rmse
+clean,18,-0.981424148606811,0.624355005159959
+nominal,18,-0.993808049535604,0.678018575851393
+stress,18,-0.843137254901961,0.628482972136223

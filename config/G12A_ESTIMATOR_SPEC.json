@@ -1,0 +1,81 @@
+﻿{
+    "specification":  "G12A_ESTIMATOR_SPEC",
+    "version":  "0.1",
+    "status":  "FROZEN_BEFORE_G12A_OUTCOME_INSPECTION",
+    "scientific_parent":  "G12_REVISION_ENHANCEMENT_PROTOCOL_v0.1",
+    "legacy_core_modified":  false,
+    "public_release_modified":  false,
+    "pairing":  {
+                    "replicates_per_scenario":  50,
+                    "scenarios":  [
+                                      "clean",
+                                      "nominal",
+                                      "stress"
+                                  ],
+                    "master_seed":  20260821,
+                    "scenario_seed_offset":  1000000,
+                    "evaluation_seed_offset":  55555,
+                    "identical_samples_across_estimators":  true
+                },
+    "joint_ols":  {
+                      "implementation":  "legacy_v1_synthetic.solve_joint_ols",
+                      "modified":  false
+                  },
+    "joint_huber":  {
+                        "implementation":  "legacy_v1_synthetic.solve_joint_huber",
+                        "initialization":  "OLS",
+                        "tuning_constant":  1.345,
+                        "scale":  "1.4826_MAD",
+                        "minimum_scale":  1E-06,
+                        "max_iterations":  30,
+                        "relative_tolerance":  1E-10,
+                        "modified":  false
+                    },
+    "joint_lad_l1":  {
+                         "objective":  "sum_absolute_residuals",
+                         "solver":  "scipy.optimize.linprog",
+                         "method":  "highs",
+                         "tuning":  "none"
+                     },
+    "joint_tukey_biweight":  {
+                                 "initialization":  "OLS",
+                                 "tuning_constant":  4.685,
+                                 "scale":  "1.4826_MAD",
+                                 "minimum_scale":  1E-06,
+                                 "max_iterations":  30,
+                                 "relative_tolerance":  1E-10,
+                                 "weight_rule":  "(1-u^2)^2_if_abs_u_lt_1_else_0",
+                                 "rank_failure_is_reported":  true
+                             },
+    "joint_ransac":  {
+                         "status":  "conditional_feasibility_arm",
+                         "model":  "same_joint_latent_event_affine_system",
+                         "minimum_subset_rows":  "number_of_parameters_p",
+                         "require_full_column_rank":  true,
+                         "residual_threshold_rule":  "2.5_x_robust_MAD_scale",
+                         "residual_threshold_multiplier":  2.5,
+                         "max_trials":  500,
+                         "seed_offset":  712345,
+                         "selection_primary":  "maximum_inlier_count",
+                         "selection_tiebreaker":  "minimum_sum_absolute_inlier_residual",
+                         "final_refit":  "OLS_on_consensus_set",
+                         "oracle_outlier_labels_used":  false
+                     },
+    "primary_metric":  "macro_RMSE",
+    "secondary_metrics":  [
+                              "MAE",
+                              "P95_absolute_error",
+                              "gamma_RMSE_ppm",
+                              "kappa_RMSE_ms",
+                              "runtime",
+                              "convergence_or_failure"
+                          ],
+    "prohibited":  [
+                       "dataset_specific_tuning",
+                       "scenario_specific_tuning",
+                       "estimator_specific_seed_selection",
+                       "removal_of_unfavorable_valid_results",
+                       "use_of_injected_outlier_labels_by_estimators",
+                       "modification_of_public_v1_release"
+                   ]
+}
